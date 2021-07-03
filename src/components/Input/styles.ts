@@ -1,6 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const InputElement = styled.div`
+interface InputElementProps {
+  isFocused: boolean;
+  isFilled: boolean;
+}
+
+export const InputElement = styled.div<InputElementProps>`
   background: #232129;
   border-radius: 10px;
   border: 2px solid #232129;
@@ -14,6 +19,13 @@ export const InputElement = styled.div`
     margin-top: 8px;
   }
 
+  ${props =>
+    props.isFocused &&
+    css`
+      color: #ff9000;
+      border-color: #ff9000;
+    `}
+
   input {
     background: transparent;
     color: #f4ede8;
@@ -26,5 +38,11 @@ export const InputElement = styled.div`
 
   svg {
     margin-right: 16px;
+
+    ${props =>
+      props.isFilled &&
+      css`
+        color: #ff9000;
+      `}
   }
 `;
