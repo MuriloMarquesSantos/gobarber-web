@@ -11,15 +11,15 @@ import { IconType } from 'react-icons';
 import { InputElement } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  inputName: string;
+  name: string;
   icon: IconType;
 }
 
-const Input: React.FC<InputProps> = ({ icon: Icon, inputName, ...rest }) => {
+const Input: React.FC<InputProps> = ({ icon: Icon, name, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
-  const { fieldName, defaultValue, registerField, error } = useField(inputName);
+  const { fieldName, defaultValue, registerField, error } = useField(name);
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
@@ -45,10 +45,10 @@ const Input: React.FC<InputProps> = ({ icon: Icon, inputName, ...rest }) => {
         onBlur={handleInputBlur}
         ref={inputRef}
         defaultValue={defaultValue}
-        name={inputName}
+        name={name}
         {...rest}
       />
-      {error && <span>{error}</span>}
+      {error}
     </InputElement>
   );
 };
