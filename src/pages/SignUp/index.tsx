@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useCallback } from 'react';
 import { FiArrowLeft, FiMail, FiLock, FiUser } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import { SubmitHandler, FormHandles } from '@unform/core';
+import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -17,9 +18,26 @@ interface FormData {
 
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
-  const handleSubmit: SubmitHandler<FormData> = data => {
-    console.log(data);
-  };
+  const handleSubmit: SubmitHandler<FormData> = useCallback(
+    async (data: FormData) => {
+      try {
+        const schema = Yup.object().shape({
+          name: Yup.string().required('Nome obrigatório'),
+          email: Yup.string()
+            .required('E-mail Obrigatório')
+            .email('Digite um e-mail válido'),
+          password: Yup.string().min(6, 'No mínimo 6 caracteres'),
+        });
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+      } catch (error) {
+        console.error(error);
+      }
+      console.log(data);
+    },
+    [],
+  );
 
   return (
     <Container>
