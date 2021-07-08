@@ -8,6 +8,8 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import logo from '../../assets/logo.svg';
 
+import getValidationErrors from '../../utils/getValidationErrors';
+
 import { Container, Content, Background } from './styles';
 
 interface FormData {
@@ -20,14 +22,17 @@ const SignIn: React.FC = () => {
   const handleSubmit: SubmitHandler<FormData> = useCallback(
     async (data: FormData) => {
       try {
+        formRef.current?.setErrors({});
         const schema = Yup.object().shape({
-          name: Yup.string().required('Nome obrigatório'),
-          password: Yup.string().min(6, 'No mínimo 6 caracteres'),
+          email: Yup.string().required('Email obrigatório').email(),
+          password: Yup.string().required('Senha obrigatória'),
         });
         await schema.validate(data, {
           abortEarly: false,
         });
       } catch (error) {
+        const errors = getValidationErrors(error);
+        formRef.current?.setErrors(errors);
         console.error(error);
       }
       console.log(data);
