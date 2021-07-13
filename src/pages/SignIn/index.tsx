@@ -4,7 +4,7 @@ import { Form } from '@unform/web';
 import { SubmitHandler, FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../hooks/AuthContext';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import logo from '../../assets/logo.svg';
