@@ -3,15 +3,15 @@ import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
 import GlobalStyle from './styles/global';
 
-import AuthContext from './context/AuthContext';
+import { AuthProvider } from './context/AuthContext';
 
 const App: React.FC = () => (
   <>
-    <AuthContext.Provider value={{ name: 'Diego' }}>
+    <AuthProvider>
       <BrowserRouter>
         <Routes />
       </BrowserRouter>
-    </AuthContext.Provider>
+    </AuthProvider>
     <GlobalStyle />
   </>
 );

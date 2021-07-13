@@ -4,7 +4,7 @@ import { Form } from '@unform/web';
 import { SubmitHandler, FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
-import AuthContext from '../../context/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import logo from '../../assets/logo.svg';
@@ -14,16 +14,15 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import { Container, Content, Background } from './styles';
 
 interface FormData {
-  name: string;
+  email: string;
   password: string;
 }
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const { name } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
 
-  console.log(name);
   const handleSubmit: SubmitHandler<FormData> = useCallback(
     async (data: FormData) => {
       try {
@@ -35,14 +34,18 @@ const SignIn: React.FC = () => {
         await schema.validate(data, {
           abortEarly: false,
         });
+
+        signIn({
+          email: data.email,
+          password: data.password,
+        });
       } catch (error) {
         const errors = getValidationErrors(error);
         formRef.current?.setErrors(errors);
         console.error(error);
       }
-      console.log(data);
     },
-    [],
+    [signIn],
   );
   return (
     <Container>
