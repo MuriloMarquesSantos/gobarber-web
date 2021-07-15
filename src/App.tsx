@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
 import GlobalStyle from './styles/global';
 
+import ToastContainer from './components/ToastContainer';
 import { AuthProvider } from './hooks/AuthContext';
 
 const App: React.FC = () => (
@@ -12,6 +13,8 @@ const App: React.FC = () => (
         <Routes />
       </BrowserRouter>
     </AuthProvider>
+
+    <ToastContainer />
     <GlobalStyle />
   </>
 );
