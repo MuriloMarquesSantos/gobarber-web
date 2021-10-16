@@ -12,7 +12,7 @@ import logo from '../../assets/logo.svg';
 
 import getValidationErrors from '../../utils/getValidationErrors';
 
-import { Container, Content, Background } from './styles';
+import { Container, Content, AnimationContainer, Background } from './styles';
 
 interface FormData {
   email: string;
@@ -45,6 +45,8 @@ const SignIn: React.FC = () => {
         if (error instanceof Yup.ValidationError) {
           const errors = getValidationErrors(error);
           formRef.current?.setErrors(errors);
+
+          return;
         }
         addToast({
           type: 'error',
@@ -58,23 +60,30 @@ const SignIn: React.FC = () => {
   return (
     <Container>
       <Content>
-        <img src={logo} alt="GoBarber" />
-        <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Faça seu Logon</h1>
-          <Input type="text" icon={FiMail} name="email" placeholder="E mail" />
-          <Input
-            type="password"
-            icon={FiLock}
-            name="password"
-            placeholder="Senha"
-          />
-          <Button type="submit">Entrar</Button>
-          <a href="forgot">Esqueci minha senha</a>
-        </Form>
-        <Link to="/signup">
-          <FiLogIn />
-          Criar conta
-        </Link>
+        <AnimationContainer>
+          <img src={logo} alt="GoBarber" />
+          <Form ref={formRef} onSubmit={handleSubmit}>
+            <h1>Faça seu Logon</h1>
+            <Input
+              type="text"
+              icon={FiMail}
+              name="email"
+              placeholder="E mail"
+            />
+            <Input
+              type="password"
+              icon={FiLock}
+              name="password"
+              placeholder="Senha"
+            />
+            <Button type="submit">Entrar</Button>
+            <a href="forgot">Esqueci minha senha</a>
+          </Form>
+          <Link to="/signup">
+            <FiLogIn />
+            Criar conta
+          </Link>
+        </AnimationContainer>
       </Content>
       <Background />
     </Container>
