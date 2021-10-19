@@ -3,7 +3,7 @@
 This project is a barber app, in which you are able to login an manage your appointments.
 
 
-Features to be added:
+## Future tasks
 
 - [ ] Dashboard
 - [ ] Appointments Management
@@ -26,3 +26,7 @@ This project depends on [Go Barber Server](https://github.com/MuriloMarquesSanto
 ### Demo
 
 ![image](https://user-images.githubusercontent.com/18178861/137823571-8cd0360c-42f6-4147-87fa-1778d0209055.png)
+
+### Contributions
+
+Contributions are welcome, feel free to open pull requests or to e-mail me.
