@@ -136,3 +136,63 @@ export const NextAppointmentDetails = styled.div`
     }
   }
 `;
+
+export const Section = styled.section`
+  margin-top: 48px;
+
+  > strong {
+    color: #999591;
+    font-size: 20px;
+    line-height: 26px;
+    border-bottom: 1px solid #3e3b47;
+    display: block;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+`;
+
+export const Appointment = styled.div`
+  display: flex;
+  align-items: center;
+
+  & + div {
+    margin-top: 16px;
+  }
+
+  span {
+    color: #f4ede8;
+    font-weight: 400;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+
+    svg {
+      color: #ff9000;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+  }
+
+  div {
+    display: flex;
+    flex: 1;
+    padding: 16px 24px;
+    border-radius: 10px;
+    background: #3e3b47;
+    align-items: center;
+    margin-left: 24px;
+
+    strong {
+      color: #fff;
+      margin-left: 24px;
+      font-size: 20px;
+    }
+  }
+
+  img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+  }
+`;

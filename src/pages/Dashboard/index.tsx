@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiPower, FiClock } from 'react-icons/fi';
 import {
   Container,
@@ -10,11 +10,14 @@ import {
   Calendar,
   NextAppointment,
   NextAppointmentDetails,
+  Section,
+  Appointment,
 } from './styles';
 import logo from '../../assets/logo.svg';
 import { useAuth } from '../../hooks/AuthContext';
 
 const Dashboard: React.FC = () => {
+  const [selectDate, setSelectedDate] = useState<Date>(new Date());
   const { signOut, user } = useAuth();
   console.log(user);
   return (
@@ -57,6 +60,64 @@ const Dashboard: React.FC = () => {
               </span>
             </NextAppointmentDetails>
           </NextAppointment>
+          <Section>
+            <strong>Manhã</strong>
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+              <div>
+                <img
+                  src="https://avatars.githubusercontent.com/u/18178861?v=4"
+                  alt="appointment-image"
+                />
+                <strong> Murilo Santos</strong>
+              </div>
+            </Appointment>
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+              <div>
+                <img
+                  src="https://avatars.githubusercontent.com/u/18178861?v=4"
+                  alt="appointment-image"
+                />
+                <strong> Murilo Santos</strong>
+              </div>
+            </Appointment>
+          </Section>
+          <Section>
+            <strong>Tarde</strong>
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+              <div>
+                <img
+                  src="https://avatars.githubusercontent.com/u/18178861?v=4"
+                  alt="appointment-image"
+                />
+                <strong> Murilo Santos</strong>
+              </div>
+            </Appointment>
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+              <div>
+                <img
+                  src="https://avatars.githubusercontent.com/u/18178861?v=4"
+                  alt="appointment-image"
+                />
+                <strong> Murilo Santos</strong>
+              </div>
+            </Appointment>
+          </Section>
         </Schedule>
         <Calendar />
       </Content>
