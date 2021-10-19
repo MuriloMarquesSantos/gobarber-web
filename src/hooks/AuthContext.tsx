@@ -1,9 +1,15 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
 import api from '../services/api';
 
+interface User {
+  id: string;
+  name: string;
+  avatar: string;
+}
+
 interface AuthState {
   token: string;
-  user: object;
+  user: User;
 }
 
 interface AuthData {
@@ -12,7 +18,7 @@ interface AuthData {
 }
 
 interface AuthContextData {
-  user: object;
+  user: User;
   // eslint-disable-next-line no-unused-vars
   signIn(credentials: AuthData): Promise<void>;
   signOut(): void;
