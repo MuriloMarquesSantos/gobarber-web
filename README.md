@@ -31,7 +31,8 @@ This project depends on [Go Barber Server](https://github.com/MuriloMarquesSanto
 
 #### Appointments / Dashboard Page
 
-![image](https://user-images.githubusercontent.com/18178861/137977995-a3f83ebd-f9ef-48a5-af14-a750d2b8effd.png)
+![image](https://user-images.githubusercontent.com/18178861/137978611-2cc622e5-142c-45b9-a5f1-35afea055f3b.png)
+
 
 
 ### Contributions
