@@ -25,7 +25,14 @@ This project depends on [Go Barber Server](https://github.com/MuriloMarquesSanto
 - ```yarn start``` 
 ### Demo
 
+#### Login Page
+
 ![image](https://user-images.githubusercontent.com/18178861/137823571-8cd0360c-42f6-4147-87fa-1778d0209055.png)
+
+#### Appointments / Dashboard Page
+
+![image](https://user-images.githubusercontent.com/18178861/137977995-a3f83ebd-f9ef-48a5-af14-a750d2b8effd.png)
+
 
 ### Contributions
 
