@@ -22,13 +22,19 @@ const Dashboard: React.FC = () => {
   const [selectDate, setSelectedDate] = useState<Date>(new Date());
   const { signOut, user } = useAuth();
 
+  const getDateOneYearFromNow = (): Date => {
+    const oneYearFromNow: Date = new Date();
+
+    oneYearFromNow.setFullYear(new Date().getFullYear() + 1);
+
+    return oneYearFromNow;
+  };
+
   const handleDateChange = useCallback((day: Date, modifiers: DayModifiers) => {
     if (modifiers.available) {
       setSelectedDate(day);
-      console.log(selectDate);
     }
   }, []);
-  console.log(user);
   return (
     <Container>
       <Header>
@@ -132,6 +138,7 @@ const Dashboard: React.FC = () => {
           <DayPicker
             weekdaysShort={['D', 'S', 'T', 'Q', 'Q', 'S', 'S']}
             fromMonth={new Date()}
+            toMonth={getDateOneYearFromNow()}
             disabledDays={[{ daysOfWeek: [0, 6] }]}
             modifiers={{
               available: { daysOfWeek: [1, 2, 3, 4, 5] },
