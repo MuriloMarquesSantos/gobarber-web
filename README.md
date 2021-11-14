@@ -2,6 +2,8 @@
 
 This project is a barber app, in which you are able to login an manage your appointments.
 
+This project is still in progress and in the next section you can find more details about future tasks to be implemented.
+
 
 ## Future tasks
 
