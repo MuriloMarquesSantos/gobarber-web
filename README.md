@@ -22,6 +22,27 @@ This project depends on [Go Barber Server](https://github.com/MuriloMarquesSanto
 - Yup (Validation)
 - Unform (Forms)
 
+## Project structure
+
+```
+Project
+├── src
+|   ├── assets: Application images, videos, gifs and others.
+│   ├── components: App main react components.
+│   ├── hooks: Customized hooks such as AuthContext (Context API)
+│   ├── pages: Application page each containing index.txs and styles.ts file.
+│   ├── routes: Application routing.
+│   ├── services: Any service applicable, such as axios api.
+│   ├── styles: Global style.
+│   ├── utils: Additional shared functionalities such as handling validation errors.
+│   ├── App.tsx: Main application component.
+│   ├── index.tsx: React application entrypoint.
+|
+├── tsconfig.json: Typescript compiler configurations
+├── package.json: File that manages all the dependecies and contains script definitions.
+
+```
+
 ### How to build and run
 - ```yarn```
 - ```yarn start``` 
